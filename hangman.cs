@@ -73,7 +73,18 @@ public class Hangman
             Console.WriteLine("\x1b[36;1mGuess a letter ({0} guesses remaining):\x1b[0m", remainingGuesses-iter);
             GetMaskedWord(secretWord, guessedLetters);
             Console.WriteLine("\x1b[31m"+hangman+"\x1b[0m");
-            char guess = Console.ReadLine().ToLower()[0];
+            char guess;
+            try
+            {
+                string input = Console.ReadLine()?.ToLower();
+                guess = input != null && input.Length > 0 ? input[0] : default(char);
+                if(guess=='\0')
+                    throw new Exception("the input is empty");
+            }catch(Exception e)
+            {
+                Console.WriteLine(e);
+                continue;
+            }
             Console.Clear();
 
             if (guessedLetters.Contains(guess))
