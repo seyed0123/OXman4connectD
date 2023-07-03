@@ -92,3 +92,10 @@ If the player runs out of guesses before guessing the word, the game ends in def
 # Dependencies
 - This game requires a console application to run.
 - The console must support ANSI escape codes to display colored text.
+# Shots of the game
+![](shots/1.png)
+![](shots/2.png)
+![](shots/3.png)
+![](shots/4.png)
+![](shots/5.png)
+![](shots/6.png)
