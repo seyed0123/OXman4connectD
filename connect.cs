@@ -137,6 +137,10 @@ public class Connect
             {
                 Console.WriteLine("\u001b[33m"+names[1]+" I offer my heartfelt congratulations on your stunning victory over your formidable and deceitful adversary.\n\u001b[35mYou have emerged triumphant in this captivating contest.\n");
                 break;
+            }else if(checkNum==3)
+            {
+                Console.WriteLine("I regret to announce that this breathtaking and alluring competition has not seen anyone worthy of winning.");
+                break;
             }
             round = ((round+1)%2);
         }
@@ -197,6 +201,8 @@ public class Connect
     }
     private int check()
     {
+        if(person1.Count+person2.Count==(w+1)*(w+1))
+            return 3;
         bool [,] visited1 = new bool [w+2,h+2];
         bool [,] visited2 = new bool [w+2,h+2];
         foreach(Point p in person1)
