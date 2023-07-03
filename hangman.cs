@@ -76,7 +76,7 @@ public class Hangman
             char guess;
             try
             {
-                string input = Console.ReadLine()?.ToLower();
+                string input = (Console.ReadLine() ?? "/0").ToLower();
                 guess = input != null && input.Length > 0 ? input[0] : default(char);
                 if(guess=='\0')
                     throw new Exception("the input is empty");
