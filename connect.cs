@@ -34,7 +34,7 @@ public class Connect
     private int [,] matrix;
     HashSet<Point> person1 , person2;
     private int h , w ;
-    private int maxNumber = 5 ;
+    private int maxNumber = 4 ;
     private string[] colors;
     string[] colorCodes = new string[]
     {
@@ -84,7 +84,7 @@ public class Connect
             Console.Write("\u001b[0m"); // Reset color to default
         }
         Console.WriteLine("");
-        Console.WriteLine("chosse a color for your team. first {0}",names[0]);
+        Console.WriteLine("chosse a number of color for your team. first {0}",names[0]);
         try
         {
             colors[0] = colorCodes[int.Parse(Console.ReadLine() ?? "0")];
@@ -131,11 +131,11 @@ public class Connect
             int checkNum = check();
             if(checkNum==1)
             {
-                Console.WriteLine("\u001b[33mI implore you to accept my congratulations on rubbing the nose of your treacherous and powerful opponent.\n\u001b[35mYou have won this fascinating competition");
+                Console.WriteLine("\u001b[33m"+names[0]+" I implore you to accept my congratulations on rubbing the nose of your treacherous and powerful opponent.\n\u001b[35mYou have won this fascinating competition.\n");
                 break;
             }else if(checkNum==2)
             {
-                Console.WriteLine("\u001b[33mI offer my heartfelt congratulations on your stunning victory over your formidable and deceitful adversary.\n\u001b[35mYou have emerged triumphant in this captivating contest.");
+                Console.WriteLine("\u001b[33m"+names[1]+" I offer my heartfelt congratulations on your stunning victory over your formidable and deceitful adversary.\n\u001b[35mYou have emerged triumphant in this captivating contest.\n");
                 break;
             }
             round = ((round+1)%2);
@@ -176,9 +176,9 @@ public class Connect
     }
     private void print()
     {
-        for(int i = 0 ; i <= h ; i++)
+        for(int i = 0 ; i <= w ; i++)
         {
-            for(int j = 0 ; j <=w ;j++)
+            for(int j = 0 ; j <= h ;j++)
             {
                 if(matrix[i,j]==0)
                     Console.Write("\u001b[38;5;75m◦  \u001b[0m");
@@ -201,7 +201,7 @@ public class Connect
         bool [,] visited2 = new bool [w+2,h+2];
         foreach(Point p in person1)
         {
-            if(visited1[p.x,p.y]==false)
+            if(true)
                 if(DFS(visited1 , p.x , p.y , 1))
                 {
                     return 1;
@@ -209,7 +209,7 @@ public class Connect
         }
         foreach(Point p in person2)
         {
-            if(visited1[p.x,p.y]==false)
+            if(true)
                 if(DFS(visited2 , p.x , p.y , 2))
                 {
                     return 2;
